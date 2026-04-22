@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="Concrete">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Original Buscemi's | Detroit Grit</title>
+<meta name="description" content="The Original Buscemi's - Detroit-style pizza and Italian subs since 1955. A Detroit institution.">
+<link rel="icon" href="https://originalbuscemis.com/wp-content/uploads/2018/08/cropped-OriginalBuscemisW_wShield-3.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.8;overflow-x:hidden;transition:background .4s,color .4s}
+a{color:var(--accent);text-decoration:none}
+h1,h2,h3{font-family:'Archivo Black',sans-serif;line-height:1.1;text-transform:uppercase;letter-spacing:-1px}
+h4{font-family:'Archivo Black',sans-serif;text-transform:uppercase}
+img{max-width:100%;display:block}
+ul{list-style:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+[data-theme="Concrete"]{
+--bg:#1A1A1A;--bg-alt:#242424;--text:#E8E4E0;--text-muted:#999;
+--accent:#CC0000;--accent-glow:#FF1A1A;--contrast-bg:#F5F0EB;--contrast-text:#1A1A1A;
+--card-bg:rgba(36,36,36,0.95);--card-border:rgba(204,0,0,0.15);
+--nav-bg:rgba(26,26,26,0.95);--particle-color:204,0,0;
+}
+[data-theme="Newsprint"]{
+--bg:#F5F0EB;--bg-alt:#EBE5DD;--text:#1A1A1A;--text-muted:#555;
+--accent:#CC0000;--accent-glow:#990000;--contrast-bg:#1A1A1A;--contrast-text:#F5F0EB;
+--card-bg:#fff;--card-border:rgba(0,0,0,0.1);
+--nav-bg:rgba(245,240,235,0.95);--particle-color:26,26,26;
+}
+[data-theme="Motor City"]{
+--bg:#0A0A14;--bg-alt:#141420;--text:#E0DDD8;--text-muted:#888;
+--accent:#FF1A1A;--accent-glow:#FF4444;--contrast-bg:#F5F0EB;--contrast-text:#0A0A14;
+--card-bg:rgba(20,20,32,0.95);--card-border:rgba(255,26,26,0.15);
+--nav-bg:rgba(10,10,20,0.95);--particle-color:255,26,26;
+}
+
+.skip-link{position:absolute;top:-100%;left:16px;background:var(--accent);color:#fff;padding:8px 16px;z-index:10000;border-radius:0 0 8px 8px;font-weight:600;transition:top .3s}
+.skip-link:focus{top:0}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:12px 40px;display:flex;align-items:center;justify-content:space-between;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:2px solid var(--accent);transition:all .3s}
+.nav-logo img{height:44px;width:auto}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{color:var(--text-muted);font-family:'Archivo Black',sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:2px;transition:color .3s}
+.nav-links a:hover{color:var(--accent)}
+.hamburger{display:none;flex-direction:column;gap:5px;width:28px;cursor:pointer;z-index:1001}
+.hamburger span{display:block;width:100%;height:2px;background:var(--text);transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-nav{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;visibility:hidden;transition:all .3s}
+.mobile-nav.active{opacity:1;visibility:visible}
+.mobile-nav a{font-family:'Archivo Black',sans-serif;font-size:2rem;color:var(--text)}
+
+/* BUTTONS */
+.btn{display:inline-block;padding:14px 36px;font-family:'Archivo Black',sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:2px;transition:all .3s;text-decoration:none}
+.btn-solid{background:var(--accent);color:#fff;border:3px solid var(--accent);box-shadow:0 4px 20px rgba(var(--particle-color),0.4)}
+.btn-solid:hover{background:var(--accent-glow);border-color:var(--accent-glow);transform:translateY(-3px);box-shadow:0 8px 30px rgba(var(--particle-color),0.5)}
+.btn-outline{background:transparent;color:var(--accent);border:3px solid var(--accent);box-shadow:0 2px 12px rgba(var(--particle-color),0.2)}
+.btn-outline:hover{background:var(--accent);color:#fff;transform:translateY(-3px)}
+.btn-nav{background:var(--accent);color:#fff;padding:8px 20px;font-family:'Archivo Black',sans-serif;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--accent-glow);box-shadow:0 2px 10px rgba(var(--particle-color),0.3);transition:all .3s}
+.btn-nav:hover{background:var(--accent-glow)}
+
+/* HERO - EDITORIAL COVER */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;background:url('https://originalbuscemis.com/wp-content/uploads/2017/01/Tony_IMG_0296_b-600x400.jpg') center/cover no-repeat;padding:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.5) 100%)}
+.hero-content{position:relative;z-index:2;padding:60px 60px 80px;max-width:900px;color:#fff}
+.hero-est{font-family:'Archivo Black',sans-serif;font-size:clamp(6rem,15vw,12rem);color:var(--accent);line-height:.85;opacity:.3;position:absolute;top:15%;right:5%;z-index:1}
+.hero h1{font-size:clamp(3rem,7vw,5.5rem);margin-bottom:16px;letter-spacing:-2px}
+.hero h1 .accent{color:var(--accent)}
+.hero-sub{font-family:'Source Serif 4',serif;font-size:1.3rem;color:#ccc;margin-bottom:32px;max-width:550px;font-style:italic}
+.hero-credit{font-size:.75rem;color:#888;font-family:'Inter',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-top:24px}
+
+/* SECTIONS */
+section{padding:80px 24px;position:relative;z-index:2}
+.container{max-width:1100px;margin:0 auto}
+
+/* EDITORIAL STAT BAR */
+.stat-bar{display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid var(--accent);border-bottom:1px solid var(--card-border)}
+.stat-cell{padding:40px 24px;text-align:center;border-right:1px solid var(--card-border)}
+.stat-cell:last-child{border-right:none}
+.stat-cell .num{font-family:'Archivo Black',sans-serif;font-size:clamp(3rem,6vw,5rem);color:var(--accent);line-height:1}
+.stat-cell .lbl{font-size:.85rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:2px;margin-top:8px;font-family:'Inter',sans-serif}
+
+/* PULL QUOTE */
+.pull-quote{font-family:'Source Serif 4',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-style:italic;color:var(--text);line-height:1.5;padding:48px 0;border-top:3px solid var(--accent);border-bottom:1px solid var(--card-border);max-width:800px;margin:0 auto;text-align:center}
+.pull-quote cite{display:block;font-size:.9rem;font-style:normal;color:var(--text-muted);margin-top:16px;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:2px}
+
+/* CONTRAST SECTION */
+.contrast-section{background:var(--contrast-bg);color:var(--contrast-text);padding:80px 24px}
+.contrast-section .text-muted{color:var(--contrast-text);opacity:.6}
+.contrast-section h2{color:var(--contrast-text)}
+
+/* FOOD GRID - EDITORIAL */
+.food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin:48px 0}
+.food-item{position:relative;overflow:hidden;aspect-ratio:1}
+.food-item img{width:100%;height:100%;object-fit:cover;filter:contrast(1.1) saturate(1.2);transition:transform .4s}
+.food-item:hover img{transform:scale(1.08)}
+.food-item-label{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(transparent,rgba(0,0,0,0.85));color:#fff}
+.food-item-label h3{font-size:.85rem;letter-spacing:1px}
+
+/* TIMELINE */
+.timeline{padding:48px 0}
+.timeline-item{display:grid;grid-template-columns:100px 3px 1fr;gap:24px;margin-bottom:32px;align-items:start}
+.timeline-year{font-family:'Archivo Black',sans-serif;font-size:1.4rem;color:var(--accent);text-align:right;padding-top:4px}
+.timeline-line{background:var(--card-border);position:relative}
+.timeline-line::after{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:12px;height:12px;background:var(--accent);border-radius:50%}
+.timeline-content h4{font-size:.9rem;letter-spacing:1px;margin-bottom:4px}
+.timeline-content p{color:var(--text-muted);font-size:.95rem}
+
+/* ABOUT EDITORIAL */
+.about-editorial{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.about-editorial img{width:100%;filter:contrast(1.05) saturate(1.1)}
+.about-editorial p{line-height:1.9;color:var(--text-muted);margin-bottom:16px}
+
+/* LOCATIONS */
+.locations-strip{text-align:center;padding:60px 24px;border-top:3px solid var(--accent)}
+.locations-strip h2{margin-bottom:16px}
+.locations-strip p{color:var(--text-muted);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto}
+
+/* FOOTER */
+.footer{background:var(--bg);border-top:3px solid var(--accent);padding:48px 24px 24px}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto}
+.footer h4{font-size:.7rem;letter-spacing:3px;color:var(--accent);margin-bottom:12px}
+.footer p,.footer a{font-family:'Inter',sans-serif;color:var(--text-muted);font-size:.85rem}
+.footer a{display:block;margin-bottom:6px}
+.footer a:hover{color:var(--accent)}
+.footer-bottom{text-align:center;font-family:'Inter',sans-serif;color:var(--text-muted);font-size:.75rem;margin-top:32px;padding-top:24px;border-top:1px solid var(--card-border)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.15s}.reveal-d2{transition-delay:.3s}
+
+/* THEME SWITCHER */
+.theme-sw{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:9000;display:flex;flex-direction:column;gap:10px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:12px 8px;backdrop-filter:blur(12px)}
+.theme-sw .td{width:20px;height:20px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .3s}
+.theme-sw .td:hover{transform:scale(1.2)}
+.theme-sw .td.active{border-color:#fff;box-shadow:0 0 8px rgba(var(--particle-color),0.5)}
+.theme-sw .td[data-theme="Concrete"]{background:linear-gradient(135deg,#1A1A1A,#CC0000)}
+.theme-sw .td[data-theme="Newsprint"]{background:linear-gradient(135deg,#F5F0EB,#CC0000)}
+.theme-sw .td[data-theme="Motor City"]{background:linear-gradient(135deg,#0A0A14,#FF1A1A)}
+
+@media(max-width:768px){
+.nav-links{display:none}.hamburger{display:flex}
+.hero{min-height:80vh}.hero-content{padding:40px 24px 60px}.hero-est{font-size:5rem;top:20%}
+.stat-bar{grid-template-columns:1fr}.stat-cell{border-right:none;border-bottom:1px solid var(--card-border)}.stat-cell:last-child{border-bottom:none}
+.food-grid{grid-template-columns:1fr 1fr}
+.timeline-item{grid-template-columns:60px 3px 1fr}
+.about-editorial{grid-template-columns:1fr}
+.footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<nav class="nav">
+<a href="#"><img src="https://originalbuscemis.com/wp-content/uploads/2018/08/cropped-OriginalBuscemisW_wShield-3.png" alt="The Original Buscemi's" class="nav-logo" style="height:40px;width:auto"></a>
+<div class="nav-links">
+<a href="#story">Story</a>
+<a href="#menu">Menu</a>
+<a href="#timeline">History</a>
+<a href="http://buscemis.snappyeats.com" target="_blank" rel="noopener noreferrer" class="btn-nav">Order Now</a>
+</div>
+<button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav">
+<a href="#story">Story</a>
+<a href="#menu">Menu</a>
+<a href="#timeline">History</a>
+<a href="http://buscemis.snappyeats.com" target="_blank" rel="noopener noreferrer">Order</a>
+</div>
+
+<!-- HERO - MAGAZINE COVER -->
+<section class="hero">
+<div class="hero-overlay"></div>
+<div class="hero-est">1955</div>
+<div class="hero-content">
+<h1>The <span class="accent">Original</span><br>Buscemi's</h1>
+<div class="hero-sub">Three generations of Detroit-style pizza, Italian subs, and party shoppes. The name Michigan trusts.</div>
+<div style="display:flex;gap:16px;flex-wrap:wrap">
+<a href="http://buscemis.snappyeats.com" target="_blank" rel="noopener noreferrer" class="btn btn-solid">Order Online</a>
+<a href="#story" class="btn btn-outline" style="color:#fff;border-color:#fff">The Story</a>
+</div>
+<div class="hero-credit">50+ locations across Michigan</div>
+</div>
+</section>
+
+<!-- STAT BAR -->
+<div class="container">
+<div class="stat-bar reveal">
+<div class="stat-cell"><div class="num" data-count="70">0+</div><div class="lbl">Years</div></div>
+<div class="stat-cell"><div class="num" data-count="50">0+</div><div class="lbl">Locations</div></div>
+<div class="stat-cell"><div class="num" data-count="1955">0</div><div class="lbl">Founded</div></div>
+</div>
+</div>
+
+<!-- PULL QUOTE -->
+<section>
+<div class="pull-quote reveal">
+"Paul won't settle for being just another pizza franchise, any more than he would settle for serving just another pizza."
+<cite>The Buscemi's Family Motto</cite>
+</div>
+</section>
+
+<!-- FOOD GRID -->
+<section id="menu" style="background:var(--bg-alt)">
+<div class="container">
+<h2 class="reveal" style="margin-bottom:8px">The Menu</h2>
+<p class="reveal" style="color:var(--text-muted);margin-bottom:0">What 70 years of perfection looks like.</p>
+<div class="food-grid reveal">
+<div class="food-item"><img src="https://originalbuscemis.com/wp-content/uploads/2017/12/pizza_new.png" alt="Detroit-Style Pizza"><div class="food-item-label"><h3>Detroit-Style Pizza</h3></div></div>
+<div class="food-item"><img src="https://originalbuscemis.com/img/italianSubs.png" alt="Italian Subs"><div class="food-item-label"><h3>Torpedo &amp; Baby Sub</h3></div></div>
+<div class="food-item"><img src="https://originalbuscemis.com/img/specialtyPizza.png" alt="Specialty Pizza"><div class="food-item-label"><h3>Specialty Pizza</h3></div></div>
+<div class="food-item"><img src="https://originalbuscemis.com/img/calzones.png" alt="Calzones"><div class="food-item-label"><h3>Calzones</h3></div></div>
+<div class="food-item"><img src="https://originalbuscemis.com/img/steakSubs.png" alt="Steak Subs"><div class="food-item-label"><h3>Famous Steak Subs</h3></div></div>
+<div class="food-item"><img src="https://originalbuscemis.com/img/buscemis-catering.png" alt="Catering"><div class="food-item-label"><h3>Catering &amp; Party Paks</h3></div></div>
+</div>
+<div style="text-align:center;margin-top:32px" class="reveal">
+<a href="http://buscemis.snappyeats.com" target="_blank" rel="noopener noreferrer" class="btn btn-solid">Order Online</a>
+</div>
+</div>
+</section>
+
+<!-- ABOUT - CONTRAST SECTION -->
+<section class="contrast-section" id="story">
+<div class="container">
+<div class="about-editorial">
+<div class="reveal">
+<h2 style="margin-bottom:24px">A Detroit Story</h2>
+<p>In 1955, Paul A. Buscemi acquired a small party store in Detroit with very little capital but a lot of determination. He was the first to introduce the Italian submarine sandwich to the Detroit area, creating the trademarked Torpedo and Baby Sub.</p>
+<p>After years of experimentation with dough, sauce, and ingredients, he perfected what the family still believes is the most delicious Italian pizza available in fast food anywhere.</p>
+<p>Son Anthony joined the business, and together they formed the company in 1974 to franchise their concept. They were the first company to franchise the Party Shoppe in Michigan.</p>
+<p style="font-weight:700;font-style:italic;font-size:1.1rem">"Buscemi's is the place for that GREAT ITALIAN TASTE."</p>
+</div>
+<div class="reveal reveal-d2">
+<img src="https://originalbuscemis.com/wp-content/uploads/2017/01/FullSizeRender_5-600x400.jpg" alt="The Buscemi Family" style="margin-bottom:16px">
+<img src="https://originalbuscemis.com/wp-content/uploads/2017/01/Tony_IMG_0296_b-600x400.jpg" alt="Anthony Buscemi">
+</div>
+</div>
+</div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+<div class="container">
+<h2 class="reveal" style="margin-bottom:40px">The Timeline</h2>
+<div class="timeline">
+<div class="timeline-item reveal">
+<div class="timeline-year">1955</div><div class="timeline-line"></div>
+<div class="timeline-content"><h4>The Beginning</h4><p>Paul A. Buscemi opens a small party store in Detroit. Introduces the Italian submarine sandwich to the area.</p></div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-year">1960s</div><div class="timeline-line"></div>
+<div class="timeline-content"><h4>The Torpedo is Born</h4><p>The Torpedo and Baby Sub become trademarked Detroit staples. Paul begins perfecting his pizza recipe.</p></div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-year">1974</div><div class="timeline-line"></div>
+<div class="timeline-content"><h4>Franchise Launch</h4><p>Paul and Anthony Buscemi form the company and begin franchising. First to franchise the Party Shoppe concept in Michigan.</p></div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-year">2000s</div><div class="timeline-line"></div>
+<div class="timeline-content"><h4>Statewide Expansion</h4><p>Locations spread across Michigan from Ann Arbor to Port Huron. The brand becomes synonymous with Michigan pizza.</p></div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-year">Today</div><div class="timeline-line"></div>
+<div class="timeline-content"><h4>70+ Years Strong</h4><p>50+ locations. Three generations. Still family-owned. Still the original. Still the place for GREAT ITALIAN TASTE.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- LOCATIONS -->
+<div class="locations-strip" id="main">
+<h2 class="reveal">50+ Michigan Locations</h2>
+<p class="reveal">From Ann Arbor to Port Huron. From Monroe to Lapeer. The original is never far away.</p>
+<a href="https://originalbuscemis.com/locations/" target="_blank" rel="noopener noreferrer" class="btn btn-solid reveal">Find Your Location</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-inner">
+<div>
+<h4>The Original Buscemi's</h4>
+<p style="line-height:1.7">Detroit-style pizza and Italian subs since 1955. Three generations of the Buscemi family. 50+ locations across Michigan. The name that means GREAT ITALIAN TASTE.</p>
+</div>
+<div>
+<h4>Links</h4>
+<a href="#story">Our Story</a>
+<a href="#menu">Menu</a>
+<a href="https://originalbuscemis.com/locations/" target="_blank" rel="noopener noreferrer">Locations</a>
+<a href="https://originalbuscemis.com/franchise/" target="_blank" rel="noopener noreferrer">Franchise</a>
+<a href="http://buscemis.snappyeats.com" target="_blank" rel="noopener noreferrer">Order Online</a>
+</div>
+<div>
+<h4>Watch</h4>
+<a href="https://youtu.be/AaqxUKCYJg0" target="_blank" rel="noopener noreferrer">Detroit Style Pizza</a>
+<a href="https://youtu.be/yHWNgen6lSc" target="_blank" rel="noopener noreferrer">Live in The D</a>
+<a href="https://youtu.be/r3pleIEIxJ4" target="_blank" rel="noopener noreferrer">60th Anniversary</a>
+</div>
+</div>
+<div class="footer-bottom">&copy; <span id="year"></span> The Original Buscemi's. | Website by <a href="https://kirkautomations.com" target="_blank" rel="noopener noreferrer">Kirk Automations</a></div>
+</footer>
+
+<div class="theme-sw">
+<div class="td" data-theme="Concrete" title="Concrete"></div>
+<div class="td" data-theme="Newsprint" title="Newsprint"></div>
+<div class="td" data-theme="Motor City" title="Motor City"></div>
+</div>
+
+<script>
+(function(){
+'use strict';
+const $=s=>document.querySelector(s);const $$=s=>[...document.querySelectorAll(s)];
+const LS_PREFIX='buscemis-grit';
+const DEFAULT_THEME='Concrete';
+const ls={get:(k,d)=>{try{return localStorage.getItem(LS_PREFIX+'-'+k)||d}catch(e){return d}},set:(k,v)=>{try{localStorage.setItem(LS_PREFIX+'-'+k,v)}catch(e){}}};
+const yearEl=$('#year');if(yearEl)yearEl.textContent=new Date().getFullYear();
+
+let currentTheme=ls.get('theme',DEFAULT_THEME);
+function applyTheme(t){currentTheme=t;document.documentElement.setAttribute('data-theme',t);ls.set('theme',t);$$('.td').forEach(d=>d.classList.toggle('active',d.dataset.theme===t))}
+applyTheme(currentTheme);
+$$('.td').forEach(d=>d.addEventListener('click',()=>applyTheme(d.dataset.theme)));
+
+const hamburger=$('.hamburger');const mobileNav=$('.mobile-nav');
+if(hamburger&&mobileNav){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');mobileNav.classList.toggle('active');document.body.style.overflow=mobileNav.classList.contains('active')?'hidden':''});
+mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('active');mobileNav.classList.remove('active');document.body.style.overflow=''}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mobileNav.classList.contains('active')){hamburger.classList.remove('active');mobileNav.classList.remove('active');document.body.style.overflow=''}})}
+
+const revealObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}})},{threshold:0.1});
+$$('.reveal').forEach(el=>revealObs.observe(el));
+setTimeout(()=>{$$('.reveal:not(.visible)').forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('visible')})},2000);
+window.addEventListener('scroll',()=>{$$('.reveal:not(.visible)').forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight*.88)el.classList.add('visible')})},{passive:true});
+
+const counters=$$('[data-count]');
+const counterObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){animateCounter(e.target);counterObs.unobserve(e.target)}})},{threshold:0.5});
+counters.forEach(el=>counterObs.observe(el));
+function animateCounter(el){const target=parseInt(el.dataset.count);const dur=2000;const start=performance.now();function tick(now){const p=Math.min((now-start)/dur,1);const ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*target).toLocaleString()+(target<2000?'+':'');if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)}
+})();
+</script>
+</body>
+</html>

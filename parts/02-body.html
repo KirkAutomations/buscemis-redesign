@@ -1,0 +1,352 @@
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- LOADING SCREEN -->
+<div id="loading-screen" aria-hidden="true">
+<div class="logo-text">THE ORIGINAL BUSCEMI'S</div>
+<div class="compass-spinner"></div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress" role="progressbar" aria-label="Scroll progress"></div>
+
+<!-- CURSOR GLOW -->
+<div id="cursor-glow"></div>
+
+<!-- CANVAS -->
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+<a href="#" class="nav-logo"><img src="https://originalbuscemis.com/wp-content/uploads/2018/08/cropped-OriginalBuscemisW_wShield-3.png" alt="The Original Buscemi's" style="height:48px;width:auto"></a>
+<div class="nav-links">
+<a href="#menu-section">Menu</a>
+<a href="#locations-section">Locations</a>
+<a href="#about-section">About</a>
+<a href="#franchise-section">Franchise</a>
+<a href="http://buscemis.snappyeats.com" target="_blank" rel="noopener noreferrer" class="nav-cta-btn magnetic-btn">Order Online</a>
+</div>
+<button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" role="dialog" aria-label="Mobile navigation">
+<a href="#menu-section">Menu</a>
+<a href="#locations-section">Locations</a>
+<a href="#about-section">About</a>
+<a href="#franchise-section">Franchise</a>
+<a href="http://buscemis.snappyeats.com" target="_blank" rel="noopener noreferrer">Order Online</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero" style="background:url('https://originalbuscemis.com/wp-content/uploads/2018/08/cropped-Bar-Brothers-Background.jpg') center/cover no-repeat">
+<div style="position:absolute;inset:0;background:var(--hero-overlay)"></div>
+<div class="hero-bg-pattern"></div>
+<div class="hero-content">
+<h1 data-voice-key="hero-title">The Original Buscemi's</h1>
+<div class="typed-line"><span id="typed-text"></span><span class="cursor-blink"></span></div>
+<a href="http://buscemis.snappyeats.com" target="_blank" rel="noopener noreferrer" class="btn-primary magnetic-btn">Order Online</a>
+</div>
+</section>
+
+<!-- STATS -->
+<section class="stats-bar">
+<div class="container">
+<div class="stats-grid">
+<div class="stat-item reveal"><div class="stat-number" data-count="70">0+</div><div class="stat-label" data-voice-key="stat-1">Years Serving Michigan</div></div>
+<div class="stat-item reveal reveal-delay-1"><div class="stat-number" data-count="50">0+</div><div class="stat-label" data-voice-key="stat-2">Locations Statewide</div></div>
+<div class="stat-item reveal reveal-delay-2"><div class="stat-number" data-count="1955">0</div><div class="stat-label" data-voice-key="stat-3">Year Founded</div></div>
+</div>
+</div>
+</section>
+
+<hr class="section-divider">
+
+<!-- MENU -->
+<section id="menu-section" class="section-alt">
+<div class="container text-center">
+<div class="section-label reveal">Our Menu</div>
+<h2 class="section-title reveal" data-voice-key="menu-title">Detroit's Finest, Since 1955</h2>
+<p class="section-subtitle reveal" data-voice-key="menu-subtitle">From our legendary Detroit-style square pizza to the original Torpedo sub, every item is made with recipes perfected over three generations.</p>
+<div class="cards-grid">
+
+<div class="card reveal">
+<svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2-4 4 4-2 4z"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="11" r="1"/><circle cx="11" cy="15" r="1"/></svg>
+<h3 data-voice-key="card-1-title">Detroit-Style Pizza</h3>
+<p data-voice-key="card-1-desc">Square, crispy-edged, cheese-to-the-crust perfection. Our signature recipe took years to perfect. Available in square tray and round.</p>
+</div>
+
+<div class="card reveal reveal-delay-1">
+<svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M7 9h2M11 9h2M15 9h4"/><path d="M7 15h4M13 15h2"/></svg>
+<h3 data-voice-key="card-2-title">Italian Subs</h3>
+<p data-voice-key="card-2-desc">The legendary Torpedo and Baby Sub. First Italian submarine sandwich in Detroit. Cold or hot, these trademarked originals set the standard.</p>
+</div>
+
+<div class="card reveal reveal-delay-2">
+<svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 000 20"/><circle cx="8" cy="8" r="1.5"/><circle cx="14" cy="7" r="1"/><circle cx="16" cy="12" r="1.5"/><circle cx="10" cy="14" r="1"/><circle cx="14" cy="16" r="1.5"/></svg>
+<h3 data-voice-key="card-3-title">Specialty Pizza</h3>
+<p data-voice-key="card-3-desc">BBQ Chicken, Taco, Hawaiian, Supreme, and more. Available in round or square, every specialty is loaded with premium toppings.</p>
+</div>
+
+<div class="card reveal reveal-delay-3">
+<svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16a2 2 0 002-2V9a2 2 0 00-2-2h-3l-2-3H9L7 7H4a2 2 0 00-2 2v8a2 2 0 002 2z"/><path d="M8 13h8M12 9v8"/></svg>
+<h3 data-voice-key="card-4-title">Calzones &amp; Pizza Rolls</h3>
+<p data-voice-key="card-4-desc">Fresh Italian dough stuffed with your choice of fillings. Steak &amp; cheese, ham &amp; cheese, veggie, and our famous Buscemi's Supreme.</p>
+</div>
+
+<div class="card reveal reveal-delay-4">
+<svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+<h3 data-voice-key="card-5-title">Party Paks &amp; Catering</h3>
+<p data-voice-key="card-5-desc">Feed the whole crew. Pizza and sub party paks, family meal deals, and full-tray catering for any occasion. The party starts at Buscemi's.</p>
+</div>
+
+<div class="card reveal">
+<svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+<h3 data-voice-key="card-6-title">Sides &amp; Salads</h3>
+<p data-voice-key="card-6-desc">Cheese Stix with marinara, fresh garden salads, and antipasto. The perfect complement to any Buscemi's order.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ABOUT -->
+<section id="about-section">
+<div class="container">
+<div class="about-grid">
+<div class="reveal">
+<div class="section-label">Our Story</div>
+<h2 class="section-title" data-voice-key="about-title">Three Generations of Great Italian Taste</h2>
+<p data-voice-key="about-text" style="color:var(--text-muted);line-height:1.8">In 1955, Paul A. Buscemi acquired a small party store in Detroit with little capital but relentless determination. He introduced the Italian submarine sandwich to the Detroit area, creating the now-trademarked Torpedo and Baby Sub. After years of perfecting his dough, sauce, and recipes, he crafted what we still believe is the finest Italian pizza in the market. When son Anthony joined the family business, they saw an opportunity. In 1974, they became the first company to franchise the Party Shoppe concept in Michigan. Today, with over 50 locations across the state, the Buscemi name stands for quality, tradition, and that unmistakable Detroit flavor.</p>
+<div class="about-badge"><strong>Est. 1955</strong> &mdash; Three Generations of GREAT ITALIAN TASTE</div>
+</div>
+<div class="reveal reveal-delay-2">
+<img src="https://originalbuscemis.com/wp-content/uploads/2017/01/FullSizeRender_5-600x400.jpg" alt="The Buscemi Family - Three Generations" style="border-radius:12px;border:1px solid var(--card-border)">
+</div>
+</div>
+</div>
+</section>
+
+<hr class="section-divider">
+
+<!-- VALUES -->
+<section class="section-alt" id="values-section">
+<div class="container text-center">
+<div class="section-label reveal">Why Buscemi's</div>
+<h2 class="section-title reveal" data-voice-key="values-title">What Sets Us Apart</h2>
+<div class="value-grid" style="margin-top:48px">
+<div class="value-item reveal">
+<div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+<h3>Quality Ingredients</h3>
+<p data-voice-key="val-1-desc" style="color:var(--text-muted)">Recipes perfected over seven decades. Every pizza, every sub, made with the same commitment to quality that Paul Buscemi insisted on from day one.</p>
+</div>
+<div class="value-item reveal reveal-delay-1">
+<div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+<h3>Family Tradition</h3>
+<p data-voice-key="val-2-desc" style="color:var(--text-muted)">From Paul to Anthony and beyond. Three generations of Buscemis have poured their hearts into every location, every recipe, every customer interaction.</p>
+</div>
+<div class="value-item reveal reveal-delay-2">
+<div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+<h3>Detroit Original</h3>
+<p data-voice-key="val-3-desc" style="color:var(--text-muted)">First to bring the Italian sub to Detroit. First to franchise the Party Shoppe in Michigan. Some things you can only get from the original.</p>
+</div>
+</div>
+</div>
+</section>
+
+<hr class="section-divider">
+
+<!-- TESTIMONIALS -->
+<section id="testimonials-section">
+<div class="container text-center">
+<div class="section-label reveal">What People Say</div>
+<h2 class="section-title reveal">Trusted by Michigan</h2>
+<div class="testimonials-grid" style="margin-top:48px">
+<div class="testimonial-card reveal">
+<svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21v-4a4 4 0 014-4h1a1 1 0 001-1V9a4 4 0 00-4-4H4a1 1 0 01-1-1V3a1 1 0 011-1h1a8 8 0 018 8v3a8 8 0 01-8 8H4z"/></svg>
+<blockquote data-voice-key="test-1">Grew up eating Buscemi's square pizza every Friday night. My kids now do the same thing. Nobody else gets that crust right. Nobody.</blockquote>
+<div class="testimonial-author">Mike R.</div>
+<div class="testimonial-role">Sterling Heights</div>
+</div>
+<div class="testimonial-card reveal reveal-delay-1">
+<svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21v-4a4 4 0 014-4h1a1 1 0 001-1V9a4 4 0 00-4-4H4a1 1 0 01-1-1V3a1 1 0 011-1h1a8 8 0 018 8v3a8 8 0 01-8 8H4z"/></svg>
+<blockquote data-voice-key="test-2">The Torpedo is the greatest sub in Metro Detroit, full stop. I've been ordering the same thing for 20 years and it never disappoints.</blockquote>
+<div class="testimonial-author">Sarah K.</div>
+<div class="testimonial-role">Warren</div>
+</div>
+<div class="testimonial-card reveal reveal-delay-2">
+<svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21v-4a4 4 0 014-4h1a1 1 0 001-1V9a4 4 0 00-4-4H4a1 1 0 01-1-1V3a1 1 0 011-1h1a8 8 0 018 8v3a8 8 0 01-8 8H4z"/></svg>
+<blockquote data-voice-key="test-3">We order Buscemi's party paks for every family event. Graduation parties, birthdays, game days. It's just what you do in Macomb County.</blockquote>
+<div class="testimonial-author">Tony D.</div>
+<div class="testimonial-role">Clinton Township</div>
+</div>
+</div>
+</div>
+</section>
+
+<hr class="section-divider">
+
+<!-- FRANCHISE -->
+<section id="franchise-section" class="section-alt">
+<div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+<div class="reveal">
+<div class="section-label">Franchise Opportunity</div>
+<h2 class="section-title" data-voice-key="franchise-title">Join the Buscemi's Family</h2>
+<p data-voice-key="franchise-text" style="color:var(--text-muted);line-height:1.8;margin-bottom:24px">The franchise food industry has never been stronger. With Americans raised on convenience and fast food, pizza and subs remain two of the most popular choices in the country. A Buscemi's franchise gives you better buying power, multiple profit centers, marketing expertise, and a 70+ year reputation for quality. We won't settle for being just another pizza franchise, just like Paul wouldn't settle for making just another pizza.</p>
+<a href="https://originalbuscemis.com/franchise/" target="_blank" rel="noopener noreferrer" class="btn-primary magnetic-btn">Learn About Franchising</a>
+</div>
+<div class="reveal reveal-delay-2">
+<img src="https://originalbuscemis.com/wp-content/uploads/2017/01/Tony_IMG_0296_b-600x400.jpg" alt="Buscemi's Family" style="border-radius:12px;border:1px solid var(--card-border)">
+</div>
+</div>
+</section>
+
+<hr class="section-divider">
+
+<!-- LOCATIONS TEASER -->
+<section id="locations-section">
+<div class="container text-center">
+<div class="section-label reveal">Find Us</div>
+<h2 class="section-title reveal">50+ Locations Across Michigan</h2>
+<p class="section-subtitle reveal" style="margin-bottom:32px">From Ann Arbor to Port Huron, from Monroe to Lapeer. There's a Buscemi's near you.</p>
+<a href="https://originalbuscemis.com/locations/" target="_blank" rel="noopener noreferrer" class="btn-primary magnetic-btn">Find Your Nearest Location</a>
+</div>
+</section>
+
+<hr class="section-divider">
+
+<!-- FAQ -->
+<section class="section-alt" id="faq-section">
+<div class="container text-center">
+<div class="section-label reveal">FAQ</div>
+<h2 class="section-title reveal">Common Questions</h2>
+<div class="faq-list" style="margin-top:48px;text-align:left">
+
+<div class="faq-item reveal">
+<div class="faq-question" role="button" tabindex="0" aria-expanded="false">What is Detroit-style pizza?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+<div class="faq-answer"><div class="faq-answer-inner" data-voice-key="faq-1">Detroit-style pizza is baked in a square steel pan, producing thick, airy dough with a crispy, caramelized cheese edge. Our recipe was perfected by Paul Buscemi himself over years of experimentation with dough, sauce, and ingredients. The result is a pizza with a golden, crunchy crust and cheese that runs all the way to the edge. Trust the crust.</div></div>
+</div>
+
+<div class="faq-item reveal">
+<div class="faq-question" role="button" tabindex="0" aria-expanded="false">Can I order online?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+<div class="faq-answer"><div class="faq-answer-inner" data-voice-key="faq-2">Yes. Many of our locations offer online ordering through our platform. Check if your local Buscemi's participates and place your order for pickup or delivery right from your phone or computer.</div></div>
+</div>
+
+<div class="faq-item reveal">
+<div class="faq-question" role="button" tabindex="0" aria-expanded="false">Do you offer catering?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+<div class="faq-answer"><div class="faq-answer-inner" data-voice-key="faq-3">Absolutely. We offer party paks, family meal deals, quarter-tray and full-tray sizes perfect for graduations, corporate events, game days, and any gathering. Contact your local Buscemi's for catering options and pricing.</div></div>
+</div>
+
+<div class="faq-item reveal">
+<div class="faq-question" role="button" tabindex="0" aria-expanded="false">How do I find my nearest location?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+<div class="faq-answer"><div class="faq-answer-inner" data-voice-key="faq-4">Visit our Locations page and enter your zip code or scroll through our complete list of 50+ Michigan locations. Each listing includes the address and phone number so you can call ahead.</div></div>
+</div>
+
+<div class="faq-item reveal">
+<div class="faq-question" role="button" tabindex="0" aria-expanded="false">What's a Torpedo sub?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+<div class="faq-answer"><div class="faq-answer-inner" data-voice-key="faq-5">The Torpedo is our signature Italian submarine sandwich, trademarked and served since the 1950s. Paul Buscemi was the first to bring the Italian sub to the Detroit area. It's a full-sized sub loaded with Italian meats, cheese, and fresh toppings. The Baby Sub is the smaller version. Both are available hot or cold.</div></div>
+</div>
+
+<div class="faq-item reveal">
+<div class="faq-question" role="button" tabindex="0" aria-expanded="false">How do I franchise with Buscemi's?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+<div class="faq-answer"><div class="faq-answer-inner" data-voice-key="faq-6">Visit our Franchise page or contact us directly. We've been franchising since 1974 and offer qualified buyers a proven concept with better buying power, marketing support, and a 70+ year reputation. Buscemi's is the place for that GREAT ITALIAN TASTE.</div></div>
+</div>
+
+</div>
+</div>
+</section>
+
+<hr class="section-divider">
+
+<!-- CTA -->
+<section class="cta-section" id="main">
+<div class="container text-center">
+<h2 class="section-title reveal" data-voice-key="cta-title">Ready to Taste the Original?</h2>
+<p class="section-subtitle reveal" data-voice-key="cta-subtitle">Order online, find a location near you, or drop us a line. Seventy years of GREAT ITALIAN TASTE is waiting.</p>
+<div style="margin-bottom:40px" class="reveal"><a href="http://buscemis.snappyeats.com" target="_blank" rel="noopener noreferrer" class="btn-primary magnetic-btn">Order Online Now</a></div>
+<form class="contact-form reveal" onsubmit="event.preventDefault();this.querySelector('button').textContent='Sent!';setTimeout(()=>this.querySelector('button').textContent='Send Message',3000)">
+<div class="form-row"><input type="text" class="form-input" placeholder="Your Name" required aria-label="Your Name"><input type="email" class="form-input" placeholder="Your Email" required aria-label="Your Email"></div>
+<textarea class="form-input" placeholder="Your Message" rows="4" aria-label="Your Message"></textarea>
+<button type="submit" class="btn-primary magnetic-btn" style="align-self:center">Send Message</button>
+</form>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-grid">
+<div class="footer-about">
+<h4>The Original Buscemi's</h4>
+<p data-voice-key="footer-about">Serving Michigan since 1955. Detroit-style pizza, legendary Italian subs, and the original Party Shoppe experience. Three generations of the Buscemi family, 50+ locations, one commitment: GREAT ITALIAN TASTE.</p>
+</div>
+<div>
+<h4>Quick Links</h4>
+<a href="#menu-section">Menu</a>
+<a href="#about-section">Our Story</a>
+<a href="#franchise-section">Franchise</a>
+<a href="https://originalbuscemis.com/locations/" target="_blank" rel="noopener noreferrer">All Locations</a>
+<a href="http://buscemis.snappyeats.com" target="_blank" rel="noopener noreferrer">Order Online</a>
+</div>
+<div>
+<h4>Contact</h4>
+<a href="https://originalbuscemis.com/contact-us/" target="_blank" rel="noopener noreferrer">Contact Form</a>
+<a href="https://originalbuscemis.com/locations/" target="_blank" rel="noopener noreferrer">Find a Location</a>
+</div>
+<div>
+<h4>Videos</h4>
+<a href="https://youtu.be/AaqxUKCYJg0" target="_blank" rel="noopener noreferrer">Detroit Style Pizza</a>
+<a href="https://youtu.be/yHWNgen6lSc" target="_blank" rel="noopener noreferrer">Live in The D</a>
+<a href="https://youtu.be/r3pleIEIxJ4" target="_blank" rel="noopener noreferrer">60th Anniversary</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p class="footer-credit">&copy; <span id="year"></span> The Original Buscemi's. All rights reserved. | Website by <a href="https://kirkautomations.com" target="_blank" rel="noopener noreferrer">Kirk Automations</a></p>
+</div>
+</footer>
+
+<!-- THEME SWITCHER -->
+<div class="theme-switcher" role="radiogroup" aria-label="Color theme">
+<span class="label">Theme</span>
+<div class="theme-dot" data-theme="Brick Oven" role="radio" tabindex="0" aria-label="Brick Oven theme" title="Brick Oven"></div>
+<div class="theme-dot" data-theme="Marinara" role="radio" tabindex="0" aria-label="Marinara theme" title="Marinara"></div>
+<div class="theme-dot" data-theme="Fresh Dough" role="radio" tabindex="0" aria-label="Fresh Dough theme" title="Fresh Dough"></div>
+</div>
+
+<!-- VOICE SWITCHER -->
+<div class="voice-switcher" role="group" aria-label="Copy voice">
+<div class="voice-toggle" role="button" tabindex="0" aria-label="Toggle voice selector" title="Change Voice">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+</div>
+<div class="voice-dots" role="radiogroup" aria-label="Select voice">
+<div class="voice-dot" data-voice="founder" role="radio" tabindex="0" aria-label="The Founder voice" title="The Founder">F</div>
+<div class="voice-dot" data-voice="pizzaiolo" role="radio" tabindex="0" aria-label="The Pizzaiolo voice" title="The Pizzaiolo">P</div>
+<div class="voice-dot" data-voice="neighbor" role="radio" tabindex="0" aria-label="The Neighbor voice" title="The Neighbor">N</div>
+<div class="voice-dot" data-voice="critic" role="radio" tabindex="0" aria-label="The Food Critic voice" title="The Food Critic">C</div>
+<div class="voice-dot" data-voice="detroit" role="radio" tabindex="0" aria-label="Motor City voice" title="Motor City">D</div>
+<div class="voice-dot" data-voice="gameday" role="radio" tabindex="0" aria-label="Game Day voice" title="Game Day">G</div>
+<div class="voice-dot" data-voice="franchise" role="radio" tabindex="0" aria-label="The Franchise voice" title="The Franchise">$</div>
+</div>
+</div>
+
+<!-- ANIMATION SWITCHER -->
+<div class="anim-switcher" role="radiogroup" aria-label="Background animation">
+<span class="label">Anim</span>
+<div class="anim-dot" data-anim="particles" role="radio" tabindex="0" title="Particles">P</div>
+<div class="anim-dot" data-anim="matrix" role="radio" tabindex="0" title="Matrix">M</div>
+<div class="anim-dot" data-anim="starfield" role="radio" tabindex="0" title="Starfield">S</div>
+<div class="anim-dot" data-anim="aurora" role="radio" tabindex="0" title="Aurora">A</div>
+<div class="anim-dot" data-anim="fireflies" role="radio" tabindex="0" title="Fireflies">F</div>
+<div class="anim-dot" data-anim="mesh" role="radio" tabindex="0" title="Mesh">G</div>
+<div class="anim-dot" data-anim="lightning" role="radio" tabindex="0" title="Lightning">L</div>
+<div class="anim-dot" data-anim="bubbles" role="radio" tabindex="0" title="Bubbles">B</div>
+<div class="anim-dot" data-anim="dna" role="radio" tabindex="0" title="DNA">D</div>
+<div class="anim-dot" data-anim="blobs" role="radio" tabindex="0" title="Blobs">O</div>
+</div>
+
+<!-- INFERNO POWER BUTTON -->
+<button class="inferno-btn" role="switch" aria-checked="false" aria-label="INFERNO mode" title="INFERNO">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 3-2 6-2 9a4 4 0 008 0c0-3-3-5-3-9"/><path d="M12 22a8 8 0 01-5-14c0 5 4 6 5 2 1 4 5 3 5-2a8 8 0 01-5 14z"/></svg>
+</button>

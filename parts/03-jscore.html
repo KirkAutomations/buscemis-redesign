@@ -1,0 +1,167 @@
+﻿
+<script>
+/* ==========================================================================
+   DFLT ADVISORS â€” Complete JavaScript
+   ========================================================================== */
+(function(){
+'use strict';
+
+/* ---------- UTILITY ---------- */
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+/* === CUSTOMIZE: Change 'CLIENT' prefix and 'THEME1_NAME' default === */
+const LS_PREFIX='buscemis';
+const DEFAULT_THEME='Brick Oven';
+const ls={get:(k,d)=>{try{return localStorage.getItem(LS_PREFIX+'-'+k)||d}catch(e){return d}},set:(k,v)=>{try{localStorage.setItem(LS_PREFIX+'-'+k,v)}catch(e){}}};
+
+/* ---------- YEAR ---------- */
+const yearEl=$('#year');if(yearEl)yearEl.textContent=new Date().getFullYear();
+
+/* ---------- LOADING SCREEN ---------- */
+setTimeout(()=>{const l=$('#loading-screen');if(l){l.classList.add('fade-out');setTimeout(()=>l.style.display='none',600)}},1500);
+
+/* ---------- SCROLL PROGRESS ---------- */
+const progressBar=$('#scroll-progress');
+function updateProgress(){const h=document.documentElement.scrollHeight-window.innerHeight;if(progressBar&&h>0)progressBar.style.width=(window.scrollY/h*100)+'%'}
+window.addEventListener('scroll',updateProgress,{passive:true});
+
+/* ---------- CURSOR GLOW ---------- */
+const glow=$('#cursor-glow');
+let mx=window.innerWidth/2,my=window.innerHeight/2;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;if(glow){glow.style.left=mx+'px';glow.style.top=my+'px'}});
+document.addEventListener('touchmove',e=>{const t=e.touches[0];mx=t.clientX;my=t.clientY},{passive:true});
+
+/* ---------- NAV SCROLL ---------- */
+const nav=$('.nav');
+window.addEventListener('scroll',()=>{if(nav)nav.classList.toggle('scrolled',window.scrollY>60)},{passive:true});
+
+/* ---------- HAMBURGER ---------- */
+const hamburger=$('.hamburger');
+const mobileNav=$('.mobile-nav');
+if(hamburger&&mobileNav){
+  hamburger.addEventListener('click',()=>{
+    const active=hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded',String(active));
+    document.body.style.overflow=active?'hidden':'';
+  });
+  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    hamburger.classList.remove('active');mobileNav.classList.remove('active');
+    hamburger.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }));
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&mobileNav.classList.contains('active')){
+      hamburger.classList.remove('active');mobileNav.classList.remove('active');
+      hamburger.setAttribute('aria-expanded','false');
+      document.body.style.overflow='';
+    }
+  });
+}
+
+/* ---------- SCROLL REVEAL ---------- */
+const revealEls=$$('.reveal');
+const revealObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}})},{threshold:0.1});
+revealEls.forEach(el=>revealObs.observe(el));
+// Fallback
+window.addEventListener('scroll',function fallbackReveal(){$$('.reveal:not(.visible)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<window.innerHeight*0.88)el.classList.add('visible')})},{passive:true});
+
+/* ---------- COUNTER ANIMATION ---------- */
+const counters=$$('[data-count]');
+const counterObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){animateCounter(e.target);counterObs.unobserve(e.target)}})},{threshold:0.5});
+counters.forEach(el=>counterObs.observe(el));
+function animateCounter(el){
+  const target=parseInt(el.dataset.count);
+  const dur=2000;const start=performance.now();
+  function tick(now){
+    const p=Math.min((now-start)/dur,1);
+    const ease=1-Math.pow(1-p,3);
+    const val=Math.floor(ease*target);
+    el.textContent=val.toLocaleString()+'+';
+    if(p<1)requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+/* ---------- FAQ ---------- */
+$$('.faq-question').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    const wasActive=item.classList.contains('active');
+    $$('.faq-item').forEach(i=>{i.classList.remove('active');i.querySelector('.faq-answer').style.maxHeight='0';i.querySelector('.faq-question').setAttribute('aria-expanded','false')});
+    if(!wasActive){
+      item.classList.add('active');
+      const ans=item.querySelector('.faq-answer');
+      ans.style.maxHeight=ans.scrollHeight+'px';
+      q.setAttribute('aria-expanded','true');
+    }
+  });
+  q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click()}});
+});
+
+/* ---------- MAGNETIC BUTTONS ---------- */
+$$('.magnetic-btn').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    const cx=r.left+r.width/2,cy=r.top+r.height/2;
+    const dx=(e.clientX-cx)*0.3,dy=(e.clientY-cy)*0.3;
+    btn.style.transform=`translate(${dx}px,${dy}px)`;
+  });
+  btn.addEventListener('mouseleave',()=>{btn.style.transform=''});
+  btn.addEventListener('click',e=>{
+    const ripple=document.createElement('span');ripple.className='ripple';
+    const r=btn.getBoundingClientRect();
+    ripple.style.left=(e.clientX-r.left)+'px';ripple.style.top=(e.clientY-r.top)+'px';
+    ripple.style.width=ripple.style.height=Math.max(r.width,r.height)+'px';
+    btn.appendChild(ripple);setTimeout(()=>ripple.remove(),600);
+  });
+});
+
+/* ---------- CARD TILT ---------- */
+$$('.card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(1000px) rotateY(${x*12}deg) rotateX(${-y*12}deg)`;
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transform=''});
+});
+
+/* ==========================================================================
+   THEMES
+   ========================================================================== */
+let currentTheme=ls.get('theme',DEFAULT_THEME);
+function applyTheme(t){
+  currentTheme=t;
+  document.documentElement.setAttribute('data-theme',t);
+  ls.set('theme',t);
+  $$('.theme-dot').forEach(d=>d.classList.toggle('active',d.dataset.theme===t));
+}
+applyTheme(currentTheme);
+$$('.theme-dot').forEach(d=>{
+  d.addEventListener('click',()=>applyTheme(d.dataset.theme));
+  d.addEventListener('keydown',e=>{if(e.key==='Enter')applyTheme(d.dataset.theme)});
+});
+
+/* ==========================================================================
+   TYPING EFFECT
+   ========================================================================== */
+const typedEl=$('#typed-text');
+let typedPhrases=['Detroit-style pizza since 1955','The original Torpedo and Baby Sub','50+ locations across Michigan','Three generations of great Italian taste','Trust the crust'];
+let phraseIdx=0,charIdx=0,isDeleting=false;
+function typeLoop(){
+  if(!typedEl)return;
+  const phrase=typedPhrases[phraseIdx];
+  if(!isDeleting){
+    typedEl.textContent=phrase.substring(0,charIdx+1);charIdx++;
+    if(charIdx>=phrase.length){setTimeout(()=>{isDeleting=true;typeLoop()},2200);return}
+    setTimeout(typeLoop,45);
+  }else{
+    typedEl.textContent=phrase.substring(0,charIdx-1);charIdx--;
+    if(charIdx<=0){isDeleting=false;phraseIdx=(phraseIdx+1)%typedPhrases.length;setTimeout(typeLoop,400);return}
+    setTimeout(typeLoop,25);
+  }
+}
+setTimeout(typeLoop,1800);
+
